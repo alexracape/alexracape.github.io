@@ -8,17 +8,17 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 Quartz 4.0",
+    pageTitle: "Alex Racapé",
     enableSPA: true,
     enablePopovers: true,
     analytics: null,
     locale: "en-US",
-    baseUrl: "sosiristseng.github.io/template-quartz",
+    baseUrl: "alexracape.github.io",
     ignorePatterns: ["private", "_templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
       typography: {
-        header: "Schibsted Grotesk",
+        header: "Kumbh Sans",
         body: "Roboto",
         code: "Fira Code",
       },
@@ -32,6 +32,7 @@ const config: QuartzConfig = {
           secondary: "#284b63",
           tertiary: "#84a59d",
           highlight: "rgba(143, 159, 169, 0.15)",
+          textHighlight: "rgba(143, 159, 169, 0.15)",
         },
         darkMode: {
           light: "#161618",
@@ -42,8 +43,11 @@ const config: QuartzConfig = {
           secondary: "#7b97aa",
           tertiary: "#84a59d",
           highlight: "rgba(143, 159, 169, 0.15)",
+          textHighlight: "rgba(143, 159, 169, 0.15)",
         },
       },
+      cdnCaching: true,
+      fontOrigin: "googleFonts",
     },
   },
   plugins: {
@@ -72,6 +76,7 @@ const config: QuartzConfig = {
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
+      Plugin.HomePage(),
       Plugin.ContentPage(),
       Plugin.FolderPage(),
       Plugin.TagPage(),

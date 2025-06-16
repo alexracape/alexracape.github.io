@@ -8,9 +8,24 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/sosiristseng/template-quartz",
+      GitHub: "https://github.com/alexracape",
     },
   }),
+}
+
+// components for the home page
+export const homePageLayout: PageLayout = {
+  beforeBody: [],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Darkmode(),
+    Component.DesktopOnly(Component.Explorer()),
+  ],
+  right: [
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
+  ],
 }
 
 // components for pages that display a single page (e.g. a single note)

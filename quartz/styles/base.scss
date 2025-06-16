@@ -198,6 +198,14 @@ a {
     row-gap: #{map.get($desktopGrid, rowGap)};
     grid-template-areas: #{map.get($desktopGrid, templateAreas)};
 
+    // &:not(:has(.sidebar.right:not(:empty))) {
+    //   grid-template-columns: #{map.get($mobileGrid, templateColumns)};
+    //   grid-template-rows: #{map.get($mobileGrid, templateRows)};
+    //   column-gap: #{map.get($mobileGrid, columnGap)};
+    //   row-gap: #{map.get($mobileGrid, rowGap)};
+    //   grid-template-areas: #{map.get($mobileGrid, templateAreas)};
+    // }
+
     @media all and ($tablet) {
       grid-template-columns: #{map.get($tabletGrid, templateColumns)};
       grid-template-rows: #{map.get($tabletGrid, templateRows)};
@@ -269,22 +277,27 @@ a {
         }
       }
     }
-    & .page-header,
-    & .page-footer {
-      margin-top: 1rem;
-    }
+    // & .page-header,
+    // & .page-footer {
+    //   margin-top: 1rem;
+    // }
 
-    & .page-header {
-      grid-area: grid-header;
-      margin: $topSpacing 0 0 0;
-      @media all and ($mobile) {
-        margin-top: 0;
-        padding: 0;
-      }
+    // & .page-header {
+    //   grid-area: grid-header;
+    //   margin: $topSpacing 0 0 0;
+    //   @media all and ($mobile) {
+    //     margin-top: 0;
+    //     padding: 0;
+    //   }
+    // }
+
+    & .center {
+      height: 65vh;
+      padding-top: 6rem;
     }
 
     & .center > article {
-      grid-area: grid-center;
+      height: 100%;
     }
 
     & footer {

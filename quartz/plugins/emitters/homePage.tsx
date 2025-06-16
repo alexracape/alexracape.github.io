@@ -6,8 +6,8 @@ import BodyConstructor from "../../components/Body"
 import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
 import { pathToRoot } from "../../util/path"
-import { defaultContentPageLayout, sharedPageComponents } from "../../../quartz.layout"
-import { Content} from "../../components"
+import { sharedPageComponents, homePageLayout } from "../../../quartz.layout"
+import { Graph} from "../../components"
 import { styleText } from "util"
 import { write } from "./helpers"
 import { BuildCtx } from "../../util/ctx"
@@ -15,12 +15,7 @@ import { Node } from "unist"
 import { StaticResources } from "../../util/resources"
 import { QuartzPluginData } from "../vfile"
 
-function isHomepage(slug: string): boolean {
-  console.log("Slug: ", slug)
-  return slug === "index" || slug === "" || slug === "/"
-}
-
-async function processContent(
+async function processHomePage(
   ctx: BuildCtx,
   tree: Node,
   fileData: QuartzPluginData,
@@ -50,14 +45,44 @@ async function processContent(
   })
 }
 
-export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
+export const HomePage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
 
-  let opts: FullPageLayout;
-  opts = {
-      ...sharedPageComponents,
-      ...defaultContentPageLayout,
-      pageBody: Content(),
-      ...userOpts,
+  const opts = {
+    ...sharedPageComponents,
+    ...homePageLayout,
+    pageBody: Graph({
+        localGraph: {
+                drag: true,
+                zoom: true,
+                depth: 2,
+                scale: 1.1,
+                repelForce: 0.5,
+                centerForce: 0.3,
+                linkDistance: 30,
+                fontSize: 0.6,
+                opacityScale: 1,
+                showTags: true,
+                removeTags: [],
+                focusOnHover: true,
+                enableRadial: false,
+              },
+        globalGraph: {
+                drag: true,
+                zoom: true,
+                depth: -1,
+                scale: 0.9,
+                repelForce: 0.5,
+                centerForce: 0.2,
+                linkDistance: 30,
+                fontSize: 0.6,
+                opacityScale: 1,
+                showTags: true,
+                removeTags: [],
+                focusOnHover: true,
+                enableRadial: true,
+        },
+    }),
+    ...userOpts,
   }
 
   const { head: Head, header, beforeBody, pageBody, afterBody, left, right, footer: Footer } = opts
@@ -91,13 +116,8 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         }
 
         // only process home page, non-tag pages, and non-index pages
-        if (isHomepage(slug)) {
-          containsIndex = true
-          console.log(`ContentPage emitter: Skipping homepage "${slug}" (handled by HomePage emitter)`)
-          continue // Skip homepage - let HomePage emitter handle it
-        }
-        if (slug.endsWith("/index") || slug.startsWith("tags/")) continue
-        yield processContent(ctx, tree, file.data, allFiles, opts, resources)
+        if (slug.endsWith("/index") || slug.startsWith("tags/") || slug!=="index") continue
+        yield processHomePage(ctx, tree, file.data, allFiles, opts, resources)
       }
 
       if (!containsIndex) {
@@ -117,10 +137,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
       for (const changeEvent of changeEvents) {
         if (!changeEvent.file) continue
         if (changeEvent.type === "add" || changeEvent.type === "change") {
-          const slug = changeEvent.file.data.slug!
-          if (!isHomepage(slug)) { // Exclude homepage changes
-            changedSlugs.add(slug)
-          }
+          changedSlugs.add(changeEvent.file.data.slug!)
         }
       }
 
@@ -129,7 +146,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         if (!changedSlugs.has(slug)) continue
         if (slug.endsWith("/index") || slug.startsWith("tags/")) continue
 
-        yield processContent(ctx, tree, file.data, allFiles, opts, resources)
+        yield processHomePage(ctx, tree, file.data, allFiles, opts, resources)
       }
     },
   }

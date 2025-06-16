@@ -5,12 +5,14 @@
     font-size: 1rem;
     margin: 0;
   }
+  height: 100%;
 
   & > .graph-outer {
     border-radius: 5px;
     border: 1px solid var(--lightgray);
     box-sizing: border-box;
-    height: 250px;
+    height: 100%;
+    width: 100%;
     margin: 0.5em 0;
     position: relative;
     overflow: hidden;
