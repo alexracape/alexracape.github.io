@@ -1,0 +1,39 @@
+{
+  "nodes": [
+    {
+      "id": "Home"
+    },
+    {
+      "id": "Design"
+    },
+    {
+      "id": "Philosophy"
+    }
+  ],
+  "links": [
+    {
+      "source": "Home",
+      "target": "Philosophy"
+    },
+    {
+      "source": "Home",
+      "target": "Design"
+    },
+    {
+      "source": "Design",
+      "target": "Philosophy"
+    },
+    {
+      "source": "Design",
+      "target": "Home"
+    },
+    {
+      "source": "Philosophy",
+      "target": "Design"
+    },
+    {
+      "source": "Philosophy",
+      "target": "Home"
+    }
+  ]
+}
