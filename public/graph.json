@@ -1,39 +1,76 @@
 {
   "nodes": [
     {
-      "id": "Home"
+      "id": "Work"
     },
     {
-      "id": "Design"
+      "id": "Alex Racap\u00e9"
     },
     {
-      "id": "Philosophy"
+      "id": "Projects"
+    },
+    {
+      "id": "About Me"
+    },
+    {
+      "id": "Hobbies"
+    },
+    {
+      "id": "Education"
     }
   ],
   "links": [
     {
-      "source": "Home",
-      "target": "Philosophy"
+      "source": "Work",
+      "target": "Projects"
     },
     {
-      "source": "Home",
-      "target": "Design"
+      "source": "Work",
+      "target": "Education"
     },
     {
-      "source": "Design",
-      "target": "Philosophy"
+      "source": "Alex Racap\u00e9",
+      "target": "Projects"
     },
     {
-      "source": "Design",
-      "target": "Home"
+      "source": "Alex Racap\u00e9",
+      "target": "Education"
     },
     {
-      "source": "Philosophy",
-      "target": "Design"
+      "source": "Alex Racap\u00e9",
+      "target": "Work"
     },
     {
-      "source": "Philosophy",
-      "target": "Home"
+      "source": "Alex Racap\u00e9",
+      "target": "Hobbies"
+    },
+    {
+      "source": "Alex Racap\u00e9",
+      "target": "About Me"
+    },
+    {
+      "source": "Projects",
+      "target": "Work"
+    },
+    {
+      "source": "Projects",
+      "target": "Education"
+    },
+    {
+      "source": "About Me",
+      "target": "Hobbies"
+    },
+    {
+      "source": "Hobbies",
+      "target": "About Me"
+    },
+    {
+      "source": "Education",
+      "target": "Projects"
+    },
+    {
+      "source": "Education",
+      "target": "Work"
     }
   ]
 }

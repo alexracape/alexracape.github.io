@@ -8,6 +8,8 @@ CONTENT_DIR = 'content'
 PUBLIC_DIR = 'public'
 TEMPLATE_PATH = 'templates/layout.html'
 HOME_TEMPLATE_PATH = 'templates/home.html'
+STYLES_PATH = 'templates/styles.css'
+SIDEBAR_PATH = 'templates/sidebar.html'
 
 def ensure_public_dir():
     if not os.path.exists(PUBLIC_DIR):
@@ -78,12 +80,24 @@ def build_site():
     with open(os.path.join(PUBLIC_DIR, 'graph.json'), 'w') as f:
         json.dump(graph_data, f, indent=2)
     
-    # Load templates
+    # Load templates and components
     with open(TEMPLATE_PATH, 'r') as f:
         content_template = f.read()
     
     with open(HOME_TEMPLATE_PATH, 'r') as f:
         home_template = f.read()
+    
+    with open(STYLES_PATH, 'r') as f:
+        styles = f.read()
+    
+    with open(SIDEBAR_PATH, 'r') as f:
+        sidebar = f.read()
+    
+    # Inject shared components into templates
+    content_template = content_template.replace('{styles}', styles)
+    content_template = content_template.replace('{sidebar}', sidebar)
+    home_template = home_template.replace('{styles}', styles)
+    home_template = home_template.replace('{sidebar}', sidebar)
     
     # Process each file
     for f in files:
@@ -91,11 +105,11 @@ def build_site():
         input_path = os.path.join(CONTENT_DIR, f)
         
         # Home page uses special template (graph only, no content)
-        if page_id == 'Home':
+        if page_id == 'Alex Racapé':
             final_html = home_template
             
             # Write to both Home.html and index.html
-            with open(os.path.join(PUBLIC_DIR, 'Home.html'), 'w') as out_file:
+            with open(os.path.join(PUBLIC_DIR, 'Alex Racapé.html'), 'w') as out_file:
                 out_file.write(final_html)
             with open(os.path.join(PUBLIC_DIR, 'index.html'), 'w') as out_file:
                 out_file.write(final_html)

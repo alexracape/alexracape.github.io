@@ -4,134 +4,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
     <title>Alex Racapé</title>
     <script src="//unpkg.com/3d-force-graph"></script>
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --bauhaus-red: #D22730;
-            --bauhaus-blue: #004E86;
-            --bauhaus-yellow: #F3CD00;
-            --border-color: #000000;
-            --sidebar-width: 250px;
-        }
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --bauhaus-red: #D22730;
+    --bauhaus-blue: #004E86;
+    --bauhaus-yellow: #F3CD00;
+    --border-color: #000000;
+    --sidebar-width: 250px;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+aside {
+    border-right: 1px solid var(--border-color);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--bg-color);
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+}
+
+.headshot {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 1.2;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-style: bold;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--text-color);
+    border: none;
+}
+
+.logo a:hover {
+    color: var(--bauhaus-red);
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+nav a:hover {
+    color: var(--bauhaus-red);
+    border: 1px solid var(--border-color);
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+ul, ol {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: var(--bauhaus-blue);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+a:hover {
+    border-bottom: 2px solid var(--bauhaus-red);
+}
+
+code {
+    background-color: #f6f8fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+}
+
+pre {
+    background-color: #f6f8fa;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+blockquote {
+    border-left: 4px solid var(--bauhaus-blue);
+    padding-left: 20px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+}
+
+/* Specific Bauhaus touches */
+::selection {
+    background: var(--bauhaus-yellow);
+    color: var(--text-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 0px;
+    }
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        min-height: 100vh;
+    }
+
+    aside {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 15px 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .headshot {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: auto;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .content {
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p, ul, ol {
+        font-size: 1rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    aside {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .headshot {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo {
+        font-size: 0.9rem;
+        width: 100%;
+        order: -1;
+    }
+
+    nav {
+        width: 100%;
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    .content {
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    p, ul, ol {
+        font-size: 0.95rem;
+    }
+}
+
+
+        /* Home page specific styles */
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: grid;
-            grid-template-columns: var(--sidebar-width) 1fr;
             height: 100vh;
             overflow: hidden;
         }
 
-        aside {
-            border-right: 1px solid var(--border-color);
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            background-color: var(--bg-color);
-        }
-
-        .headshot {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--border-color);
-        }
-
-        .logo {
-            font-weight: 900;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        .logo a {
-            text-decoration: none;
-            color: var(--text-color);
-            border: none;
-        }
-
-        .logo a:hover {
-            color: var(--bauhaus-red);
-        }
-
-        nav {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 10px;
-            border: 1px solid transparent;
-            transition: all 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--bauhaus-red);
-            border: 1px solid var(--border-color);
-        }
-
         .graph-container {
             width: 100%;
-            height: 100%;
+            height: 100vh;
             background-color: var(--bg-color);
             position: relative;
+            overflow: hidden;
         }
 
-        /* Specific Bauhaus touches */
-        ::selection {
-            background: var(--bauhaus-yellow);
-            color: var(--text-color);
+        .graph-container > div {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
         }
 
-        /* Responsive */
+        .graph-container canvas {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* Mobile responsive styles for graph */
         @media (max-width: 768px) {
             body {
-                grid-template-columns: 1fr;
                 grid-template-rows: auto 1fr;
+                height: 100vh;
             }
 
-            aside {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding: 20px;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+            .graph-container {
+                height: calc(100vh - 120px); /* Adjust for sidebar header */
             }
+        }
 
-            .headshot {
-                width: 100px;
-                height: 100px;
-            }
-
-            nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+        @media (max-width: 480px) {
+            .graph-container {
+                height: calc(100vh - 140px); /* Adjust for smaller sidebar header */
             }
         }
     </style>
@@ -139,13 +360,16 @@
 
 <body>
     <aside>
-        <img src="images/headshot.jpg" alt="Alex Racapé" class="headshot">
-        <div class="logo"><a href="index.html">Alex Racapé</a></div>
-        <nav>
-            <a href="Philosophy.html">Philosophy</a>
-            <a href="Design.html">Design</a>
-        </nav>
-    </aside>
+    <img src="images/headshot.jpg" alt="Alex Racapé" class="headshot">
+    <div class="logo"><a href="index.html">Alex Racapé</a></div>
+    <nav>
+        <a href="Projects.html">Projects</a>
+        <a href="Education.html">Education</a>
+        <a href="Work.html">Work</a>
+        <a href="Hobbies.html">Hobbies</a>
+        <a href="About Me.html">About Me</a>
+    </nav>
+</aside>
     <div class="graph-container" id="local-graph"></div>
 
     <script>
@@ -154,11 +378,14 @@
         fetch('graph.json')
             .then(res => res.json())
             .then(data => {
+                const graphContainer = document.getElementById('local-graph');
+                
                 const Graph = ForceGraph3D()
-                    (document.getElementById('local-graph'))
+                    (graphContainer)
                     .graphData(data)
                     .backgroundColor('#ffffff')
                     .nodeColor(node => node.id === currentPageId ? '#D22730' : '#004E86')
+                    .nodeOpacity(1.0)
                     .nodeLabel('id')
                     .linkColor(() => '#1a1a1a')
                     .linkWidth(2)
@@ -167,13 +394,54 @@
                     .onNodeClick(node => {
                         window.location.href = node.id + '.html';
                     });
-
-                // Adjust camera distance
-                Graph.cameraPosition({ z: 300 });
+                
+                // Function to resize graph properly
+                function resizeGraph() {
+                    const container = document.getElementById('local-graph');
+                    const width = container.clientWidth;
+                    const height = container.clientHeight;
+                    
+                    // Update graph dimensions
+                    Graph.width(width);
+                    Graph.height(height);
+                    
+                    // Force the canvas to resize
+                    const canvas = container.querySelector('canvas');
+                    if (canvas) {
+                        canvas.style.width = width + 'px';
+                        canvas.style.height = height + 'px';
+                    }
+                }
+                
+                // Initial setup - resize first, then set camera
+                setTimeout(() => {
+                    resizeGraph();
+                    // Set camera position after resize
+                    setTimeout(() => {
+                        Graph.cameraPosition(
+                            { x: 0, y: 0, z: 300 },
+                            { x: 0, y: 0, z: 0 },
+                            0 // No transition on initial load
+                        );
+                    }, 50);
+                }, 100);
+                
+                // Handle window resize - resize immediately for smooth scaling
+                window.addEventListener('resize', () => {
+                    resizeGraph();
+                });
+                
+                // Use ResizeObserver for more reliable container size tracking
+                if (typeof ResizeObserver !== 'undefined') {
+                    const resizeObserver = new ResizeObserver(entries => {
+                        resizeGraph();
+                    });
+                    resizeObserver.observe(graphContainer);
+                }
             })
             .catch(err => {
                 console.error('Error loading graph:', err);
-                document.getElementById('local-graph').innerHTML =
+                document.getElementById('local-graph').innerHTML = 
                     '<div style="padding: 40px; color: #D22730;">Error loading graph. Please check that graph.json exists.</div>';
             });
     </script>
