@@ -1,0 +1,199 @@
+{
+  "nodes": [
+    {
+      "id": "Photography"
+    },
+    {
+      "id": "Work"
+    },
+    {
+      "id": "Music"
+    },
+    {
+      "id": "A Boul's Life"
+    },
+    {
+      "id": "LEGO Trader"
+    },
+    {
+      "id": "GeoGuessr Modelling"
+    },
+    {
+      "id": "Blokus Engine"
+    },
+    {
+      "id": "Board Game Data Analysis"
+    },
+    {
+      "id": "Projects"
+    },
+    {
+      "id": "Home"
+    },
+    {
+      "id": "Board Games"
+    },
+    {
+      "id": "Distributed Training Framework"
+    },
+    {
+      "id": "About Me"
+    },
+    {
+      "id": "Hobbies"
+    },
+    {
+      "id": "Tennis"
+    },
+    {
+      "id": "Education"
+    },
+    {
+      "id": "Noodles"
+    },
+    {
+      "id": "Barn Shirt"
+    },
+    {
+      "id": "Fine-tuned Learning Assistant"
+    },
+    {
+      "id": "Graphic Design"
+    },
+    {
+      "id": "Happy Days Shirt"
+    },
+    {
+      "id": "QuickCompose"
+    },
+    {
+      "id": "Machine Learning"
+    }
+  ],
+  "links": [
+    {
+      "source": "Work",
+      "target": "QuickCompose"
+    },
+    {
+      "source": "Work",
+      "target": "Noodles"
+    },
+    {
+      "source": "Work",
+      "target": "Home"
+    },
+    {
+      "source": "Blokus Engine",
+      "target": "Board Games"
+    },
+    {
+      "source": "Projects",
+      "target": "Fine-tuned Learning Assistant"
+    },
+    {
+      "source": "Projects",
+      "target": "Blokus Engine"
+    },
+    {
+      "source": "Projects",
+      "target": "QuickCompose"
+    },
+    {
+      "source": "Projects",
+      "target": "Noodles"
+    },
+    {
+      "source": "Projects",
+      "target": "Distributed Training Framework"
+    },
+    {
+      "source": "Projects",
+      "target": "LEGO Trader"
+    },
+    {
+      "source": "Projects",
+      "target": "GeoGuessr Modelling"
+    },
+    {
+      "source": "Projects",
+      "target": "Board Game Data Analysis"
+    },
+    {
+      "source": "Projects",
+      "target": "Home"
+    },
+    {
+      "source": "Home",
+      "target": "Projects"
+    },
+    {
+      "source": "Home",
+      "target": "Education"
+    },
+    {
+      "source": "Home",
+      "target": "Work"
+    },
+    {
+      "source": "Home",
+      "target": "Hobbies"
+    },
+    {
+      "source": "Home",
+      "target": "About Me"
+    },
+    {
+      "source": "About Me",
+      "target": "Home"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Board Games"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Music"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Graphic Design"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Photography"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Tennis"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Home"
+    },
+    {
+      "source": "Education",
+      "target": "Machine Learning"
+    },
+    {
+      "source": "Education",
+      "target": "Tennis"
+    },
+    {
+      "source": "Education",
+      "target": "Home"
+    },
+    {
+      "source": "Graphic Design",
+      "target": "Happy Days Shirt"
+    },
+    {
+      "source": "Graphic Design",
+      "target": "Barn Shirt"
+    },
+    {
+      "source": "Graphic Design",
+      "target": "A Boul's Life"
+    }
+  ]
+}
