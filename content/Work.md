@@ -8,7 +8,6 @@ Built [[QuickCompose]], an MCP server automating personalized email generation u
 
 - Reduced email campaign development time by 95%, unlocking novel marketing opportunities
 - Integrated stakeholder feedback from marketing, compliance, and end users
-- Selected to present AI solution to executive leadership including the CIO
 
 ---
 

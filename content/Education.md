@@ -13,7 +13,7 @@
 **B.A. in Computer Science and Economics** · *Minor in Mathematics*  
 *2020 - 2024* · GPA: 3.98/4.0
 
-**Awards:** Magna Cum Laude · Phi Beta Kappa · A. Myrick Freeman Prize · Adam Smith Book Prize · Dean's List (2021-2024)
+**Awards:** Magna Cum Laude · Phi Beta Kappa · A. Myrick Freeman Prize · Adam Smith Book Prize · Dean's List (2021-2024) · Book Award (2021-2023)
 
 **Favorite Courses:** Cognitive Architecture · Game Theory · Distributed Systems · AI and the Future of Humanity
 
