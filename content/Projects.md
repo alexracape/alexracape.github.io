@@ -1,9 +1,19 @@
 # Projects
 
-This is where I showcase my work and creative endeavors.
+Here are some projects that I have worked on
 
-## Featured Projects
+## Personal
+- [[Fine-tuned Learning Assistant]]
+- [[Blokus Engine]]
 
-Coming soon - this section will feature my portfolio of projects, including technical work, creative projects, and collaborative efforts.
+## Work
+- [[QuickCompose]]
+- [[Noodles]]
 
-[[Home]] • [[Work]] • [[Education]]
+## School
+- [[Distributed Training Framework]]
+- [[LEGO Trader]]
+- [[GeoGuessr Modelling]]
+- [[Board Game Data Analysis]]
+
+[[Home]]

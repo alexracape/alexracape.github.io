@@ -105,11 +105,11 @@ def build_site():
         input_path = os.path.join(CONTENT_DIR, f)
         
         # Home page uses special template (graph only, no content)
-        if page_id == 'Alex Racapé':
+        if page_id == 'Home':
             final_html = home_template
             
             # Write to both Home.html and index.html
-            with open(os.path.join(PUBLIC_DIR, 'Alex Racapé.html'), 'w') as out_file:
+            with open(os.path.join(PUBLIC_DIR, 'Home.html'), 'w') as out_file:
                 out_file.write(final_html)
             with open(os.path.join(PUBLIC_DIR, 'index.html'), 'w') as out_file:
                 out_file.write(final_html)

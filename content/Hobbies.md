@@ -1,9 +1,16 @@
 # Hobbies
 
-My interests and activities outside of work.
+Here are some of my hobbies and interests. 
+
 
 ## Personal Interests
 
-This section will explore my hobbies, passions, and activities that I enjoy in my free time.
+- [[Board Games]]
+- [[Music]]
+- [[Graphic Design]]
+- [[Photography]]
+- Racket Sports: [[Tennis]], Squash, Pickleball, Ping Pong, Paddle
+- Reading: [Goodreads](https://www.goodreads.com/user/show/179292776-alex-racap)
+- Hiking
 
-[[Home]] • [[About Me]]
+[[Home]]

@@ -1,13 +1,40 @@
 {
   "nodes": [
     {
+      "id": "Photography"
+    },
+    {
       "id": "Work"
     },
     {
-      "id": "Alex Racap\u00e9"
+      "id": "Music"
+    },
+    {
+      "id": "A Boul's Life"
+    },
+    {
+      "id": "LEGO Trader"
+    },
+    {
+      "id": "GeoGuessr Modelling"
+    },
+    {
+      "id": "Blokus Engine"
+    },
+    {
+      "id": "Board Game Data Analysis"
     },
     {
       "id": "Projects"
+    },
+    {
+      "id": "Home"
+    },
+    {
+      "id": "Board Games"
+    },
+    {
+      "id": "Distributed Training Framework"
     },
     {
       "id": "About Me"
@@ -16,61 +43,157 @@
       "id": "Hobbies"
     },
     {
+      "id": "Tennis"
+    },
+    {
       "id": "Education"
+    },
+    {
+      "id": "Noodles"
+    },
+    {
+      "id": "Barn Shirt"
+    },
+    {
+      "id": "Fine-tuned Learning Assistant"
+    },
+    {
+      "id": "Graphic Design"
+    },
+    {
+      "id": "Happy Days Shirt"
+    },
+    {
+      "id": "QuickCompose"
+    },
+    {
+      "id": "Machine Learning"
     }
   ],
   "links": [
     {
       "source": "Work",
-      "target": "Projects"
+      "target": "QuickCompose"
     },
     {
       "source": "Work",
-      "target": "Education"
+      "target": "Noodles"
     },
     {
-      "source": "Alex Racap\u00e9",
+      "source": "Work",
+      "target": "Home"
+    },
+    {
+      "source": "Blokus Engine",
+      "target": "Board Games"
+    },
+    {
+      "source": "Projects",
+      "target": "Fine-tuned Learning Assistant"
+    },
+    {
+      "source": "Projects",
+      "target": "Blokus Engine"
+    },
+    {
+      "source": "Projects",
+      "target": "QuickCompose"
+    },
+    {
+      "source": "Projects",
+      "target": "Noodles"
+    },
+    {
+      "source": "Projects",
+      "target": "Distributed Training Framework"
+    },
+    {
+      "source": "Projects",
+      "target": "LEGO Trader"
+    },
+    {
+      "source": "Projects",
+      "target": "GeoGuessr Modelling"
+    },
+    {
+      "source": "Projects",
+      "target": "Board Game Data Analysis"
+    },
+    {
+      "source": "Projects",
+      "target": "Home"
+    },
+    {
+      "source": "Home",
       "target": "Projects"
     },
     {
-      "source": "Alex Racap\u00e9",
+      "source": "Home",
       "target": "Education"
     },
     {
-      "source": "Alex Racap\u00e9",
+      "source": "Home",
       "target": "Work"
     },
     {
-      "source": "Alex Racap\u00e9",
+      "source": "Home",
       "target": "Hobbies"
     },
     {
-      "source": "Alex Racap\u00e9",
+      "source": "Home",
       "target": "About Me"
-    },
-    {
-      "source": "Projects",
-      "target": "Work"
-    },
-    {
-      "source": "Projects",
-      "target": "Education"
     },
     {
       "source": "About Me",
-      "target": "Hobbies"
+      "target": "Home"
     },
     {
       "source": "Hobbies",
-      "target": "About Me"
+      "target": "Board Games"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Music"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Graphic Design"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Photography"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Tennis"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Home"
     },
     {
       "source": "Education",
-      "target": "Projects"
+      "target": "Machine Learning"
     },
     {
       "source": "Education",
-      "target": "Work"
+      "target": "Tennis"
+    },
+    {
+      "source": "Education",
+      "target": "Home"
+    },
+    {
+      "source": "Graphic Design",
+      "target": "Happy Days Shirt"
+    },
+    {
+      "source": "Graphic Design",
+      "target": "Barn Shirt"
+    },
+    {
+      "source": "Graphic Design",
+      "target": "A Boul's Life"
     }
   ]
 }
