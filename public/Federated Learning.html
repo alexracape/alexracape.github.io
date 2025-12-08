@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-    <title>LEGO Trader - Alex Racapé</title>
+    <title>Federated Learning - Alex Racapé</title>
     <style>
         :root {
     --bg-color: #ffffff;
@@ -407,26 +407,30 @@ img {
 </aside>
     <main>
         <div class="content">
-            <h1>LEGO Trader</h1>
-<p>Believe it or not, there is a <a href="https://www.brickeconomy.com/">huge market</a> for old LEGO sets, and many people will buy sets just to keep them in the box and sell them later. These LEGO investors have historically done really well, so we decided to dig into the features that drive LEGO set prices on secondary markets.</p>
-<h2>Dataset</h2>
-<p>We curated a novel dataset of 15,000 LEGO sets with their features and historical prices. We then used machine learning to predict LEGO set prices and develop profitable trading strategies. </p>
-<p>The system combines data from two sources:</p>
+            <h1>Distributed Training Framework</h1>
+<p>This project implements a <strong>Federated Learning Framework</strong> that enables distributed machine learning across multiple machines while maintaining data privacy and security. The system allows model training on decentralized data without requiring data to leave local machines.</p>
+<p><img alt="Overview" src="images/federated_avg.png" /></p>
+<h3>Architecture</h3>
 <ul>
-<li><strong>Bricklink API</strong>: Current market prices (as of May 2023)</li>
-<li><strong>Brickset API</strong>: Historical list prices and set features</li>
+<li><strong>Coordinator</strong>: Manages the global model and orchestrates training rounds</li>
+<li><strong>Workers</strong>: Train models on local data and send updates to the coordinator</li>
+<li><strong>Aggregation</strong>: Uses federated averaging, effective for both homogeneous and heterogeneous data</li>
 </ul>
-<h2>Modelling Appreciation</h2>
-<p>Two basic models were developed and compared:</p>
+<h3>Implementation</h3>
 <ul>
-<li><strong>Random Forest</strong>: Ensemble learning approach</li>
-<li><strong>Neural Network</strong>: Deep learning model</li>
+<li>Built with <strong>Python</strong>, <strong>XML-RPC</strong>, and <strong>PyTorch</strong></li>
+<li>Inspired by MapReduce for modularity and customizability</li>
+<li>Language and framework agnostic design</li>
+<li>Clean separation between ML code and coordination logic</li>
 </ul>
-<p>Both models achieved excellent predictive performance for list prices and current market values. The trading strategy consistently outperformed the S&amp;P 500 and equal-weighted LEGO portfolios. Feature importance analysis revealed key factors driving LEGO set valuations, and the model generated five-year price forecasts.</p>
-<p>The complete dataset is available on <a href="https://www.kaggle.com/datasets/alexracape/lego-sets-and-prices-over-time">Kaggle</a>, and it has reached over 2,400 downloads with active users every month.</p>
-<p><a href="https://github.com/alexracape/lego-learner">View on GitHub →</a></p>
-<h2>Regression Model</h2>
-<p>I then expanded on this project to create a multilinear regression model that predicted LEGO set prices based on their features. I met with an executive at LEGO, and developed this <a href="https://github.com/alexracape/lego-learner/blob/main/Final%20Project.pdf">report</a> detailing the results of my analysis. For those who are curious, the model estimated an average annual appreciation of 9.97%..</p>
+<h3>Key Features</h3>
+<ul>
+<li><strong>Load Balancing</strong>: Detects stragglers and dynamically adjusts workloads</li>
+<li><strong>Fault Tolerance</strong>: Built-in retry mechanisms and quorum protocol for worker failures</li>
+<li><strong>Scalability</strong>: Tested on AWS EC2 with deployment scripts for multi-machine setups</li>
+</ul>
+<p>The framework was evaluated on MNIST with varied data distributions across workers, demonstrating robust performance and resilience to worker failures.</p>
+<p><a href="https://github.com/alexracape/federated-learning">View on GitHub →</a></p>
         </div>
     </main>
 </body>

@@ -325,6 +325,71 @@ img {
     }
 }
 
+/* Card Grid Styles */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--bg-color);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 0px var(--bauhaus-red);
+    border-bottom: 1px solid var(--border-color); /* Override default link hover */
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    transition: transform 0.3s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    border-bottom: none;
+}
+
+.card-description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
     </style>
 </head>
 
@@ -343,25 +408,106 @@ img {
     <main>
         <div class="content">
             <h1>Projects</h1>
-<p>Here are some projects that I have worked on</p>
+<p>Here are some projects that I have worked on.</p>
 <h2>Personal</h2>
-<ul>
-<li><a href="Fine-tuned Learning Assistant.html" class="internal-link">Fine-tuned Learning Assistant</a></li>
-<li><a href="Blokus Engine.html" class="internal-link">Blokus Engine</a></li>
-</ul>
+<div class="card-grid">
+
+                <a href="Fine-tuned Learning Assistant.html" class="card">
+                    <div class="card-image">
+                        <img src="images/cai.png" alt="Fine-tuned Learning Assistant">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fine-tuned Learning Assistant</h3>
+                        <p class="card-description">Using Constitutional AI to create a better teacher.</p>
+                    </div>
+                </a>
+
+
+                <a href="Blokus Engine.html" class="card">
+                    <div class="card-image">
+                        <img src="images/blokus.png" alt="Blokus Engine">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Blokus Engine</h3>
+                        <p class="card-description">Using RL, Transformers, and self-play to learn optimal strategies in Blokus.</p>
+                    </div>
+                </a>
+
+</div>
+
 <h2>Work</h2>
-<ul>
-<li><a href="QuickCompose.html" class="internal-link">QuickCompose</a></li>
-<li><a href="Noodles.html" class="internal-link">Noodles</a></li>
-</ul>
+<div class="card-grid">
+
+                <a href="QuickCompose.html" class="card">
+                    <div class="card-image">
+                        <img src="images/quickcompose.png" alt="QuickCompose">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">QuickCompose</h3>
+                        <p class="card-description">Automatically generating personalized and compliant email campaigns</p>
+                    </div>
+                </a>
+
+
+                <a href="Noodles.html" class="card">
+                    <div class="card-image">
+                        <img src="images/mesh.png" alt="Noodles">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Noodles</h3>
+                        <p class="card-description">A framework for building real-time, collaborative, 3D data visualizations.</p>
+                    </div>
+                </a>
+
+</div>
+
 <h2>School</h2>
-<ul>
-<li><a href="Distributed Training Framework.html" class="internal-link">Distributed Training Framework</a></li>
-<li><a href="LEGO Trader.html" class="internal-link">LEGO Trader</a></li>
-<li><a href="GeoGuessr Modelling.html" class="internal-link">GeoGuessr Modelling</a></li>
-<li><a href="Board Game Data Analysis.html" class="internal-link">Board Game Data Analysis</a></li>
-</ul>
-<p><a href="Home.html" class="internal-link">Home</a></p>
+<div class="card-grid">
+
+                <a href="Federated Learning.html" class="card">
+                    <div class="card-image">
+                        <img src="images/federated_avg.png" alt="Federated Learning">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Federated Learning</h3>
+                        <p class="card-description">A framework for distributed training of deep learning models.</p>
+                    </div>
+                </a>
+
+
+                <a href="LEGO Trader.html" class="card">
+                    <div class="card-image">
+                        <img src="images/lego.png" alt="LEGO Trader">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">LEGO Trader</h3>
+                        <p class="card-description">An algorithmic trading platform for the LEGO market.</p>
+                    </div>
+                </a>
+
+
+                <a href="GeoGuessr Modelling.html" class="card">
+                    <div class="card-image">
+                        <img src="https://github.com/alankct/Geo-Guesser/assets/86837040/fb183157-c524-4340-a8f8-01b3ea7ec55d" alt="GeoGuessr Modelling">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">GeoGuessr Modelling</h3>
+                        <p class="card-description">Machine learning models to predict locations in GeoGuessr.</p>
+                    </div>
+                </a>
+
+
+                <a href="Board Game Data Analysis.html" class="card">
+                    <div class="card-image">
+                        <img src="images/bgg_eda.png" alt="Board Game Data Analysis">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Board Game Data Analysis</h3>
+                        <p class="card-description">Exploratory data analysis of BoardGameGeek dataset.</p>
+                    </div>
+                </a>
+
+</div>
         </div>
     </main>
 </body>

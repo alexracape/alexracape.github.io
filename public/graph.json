@@ -34,9 +34,6 @@
       "id": "Board Games"
     },
     {
-      "id": "Distributed Training Framework"
-    },
-    {
       "id": "About Me"
     },
     {
@@ -52,7 +49,10 @@
       "id": "Noodles"
     },
     {
-      "id": "Barn Shirt"
+      "id": "Federated Learning"
+    },
+    {
+      "id": "Barn Logo"
     },
     {
       "id": "Fine-tuned Learning Assistant"
@@ -65,9 +65,6 @@
     },
     {
       "id": "QuickCompose"
-    },
-    {
-      "id": "Machine Learning"
     }
   ],
   "links": [
@@ -80,11 +77,11 @@
       "target": "Noodles"
     },
     {
-      "source": "Work",
-      "target": "Home"
+      "source": "Blokus Engine",
+      "target": "Board Games"
     },
     {
-      "source": "Blokus Engine",
+      "source": "Board Game Data Analysis",
       "target": "Board Games"
     },
     {
@@ -105,7 +102,7 @@
     },
     {
       "source": "Projects",
-      "target": "Distributed Training Framework"
+      "target": "Federated Learning"
     },
     {
       "source": "Projects",
@@ -118,10 +115,6 @@
     {
       "source": "Projects",
       "target": "Board Game Data Analysis"
-    },
-    {
-      "source": "Projects",
-      "target": "Home"
     },
     {
       "source": "Home",
@@ -144,10 +137,6 @@
       "target": "About Me"
     },
     {
-      "source": "About Me",
-      "target": "Home"
-    },
-    {
       "source": "Hobbies",
       "target": "Board Games"
     },
@@ -168,20 +157,8 @@
       "target": "Tennis"
     },
     {
-      "source": "Hobbies",
-      "target": "Home"
-    },
-    {
-      "source": "Education",
-      "target": "Machine Learning"
-    },
-    {
       "source": "Education",
       "target": "Tennis"
-    },
-    {
-      "source": "Education",
-      "target": "Home"
     },
     {
       "source": "Graphic Design",
@@ -189,7 +166,7 @@
     },
     {
       "source": "Graphic Design",
-      "target": "Barn Shirt"
+      "target": "Barn Logo"
     },
     {
       "source": "Graphic Design",

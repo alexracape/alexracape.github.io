@@ -1,6 +1,6 @@
 # Board Game Data Analysis
 
-Statistical analysis and modeling of **Board Game Geek** data to understand trends in board game production quantity and quality over time. The project uses probabilistic models to uncover patterns in the board game industry.
+Statistical analysis and modeling of **Board Game Geek** data to understand trends in the production quantity and quality of [[Board Games]] over time. The project uses probabilistic models to uncover patterns in the board game industry.
 
 ![BGG EDA](/images/bgg_eda.png)
 

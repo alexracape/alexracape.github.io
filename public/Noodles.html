@@ -325,6 +325,71 @@ img {
     }
 }
 
+/* Card Grid Styles */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--bg-color);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 0px var(--bauhaus-red);
+    border-bottom: 1px solid var(--border-color); /* Override default link hover */
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    transition: transform 0.3s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    border-bottom: none;
+}
+
+.card-description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
     </style>
 </head>
 
@@ -343,24 +408,22 @@ img {
     <main>
         <div class="content">
             <h1>Noodles</h1>
-<p><strong>Penne</strong> is the first Python client library implementing the <strong>NOODLES messaging protocol</strong>, enabling multiple client applications to interact collaboratively with data in real-time. The library provides a foundation for building distributed, interactive data visualization and manipulation systems.</p>
-<h2>Technical Overview</h2>
-<p><strong>Protocol Implementation</strong>:
-- WebSocket-based communication
-- CBOR (Concise Binary Object Representation) message encoding
-- Scene graph architecture for managing shared state</p>
-<p><strong>Architecture</strong>:
-- Fully customizable component system through subclassing
-- Clean separation between application logic and protocol handling
-- Modular design for easy integration with existing Python applications</p>
-<p><strong>Key Features</strong>:
-- Real-time collaborative data interaction
-- Efficient binary message encoding
-- Extensible scene graph components
-- Simple, Pythonic API</p>
-<p>The library abstracts away the complexity of the NOODLES protocol, allowing developers to focus on building collaborative applications without worrying about low-level messaging details.</p>
+<p>The goal of NOODLES is to provide a framework for building real-time, collaborative, 3D data visualizations. Imagine if you are a researcher and you want to visualize the data from your windfarm simulation. If you wanted a 3D visualization you would have to create a bespoke solution for VR headsets, AR glasses, web browsers, etc. NOODLES establishes a protocol that is agnostic to the hardware and allows for real-time, collaborative, 3D data visualizations.</p>
+<p><img alt="Noodles" src="images/mesh.png" /></p>
+<p>My work focused on implementing the protocol in Python and developing tools to make it as easy as possible for researchers to visualize their data. During my time at NREL, I developed three Python packages that enabled immersive 3D visualization workflows.</p>
+<h2>Penne</h2>
+<p>A client library that allows users to join a NOODLES session and view 3D data in real-time.</p>
+<p><a href="https://insightcenternoodles.github.io/Penne/">View the Website →</a>
+<a href="https://github.com/InsightCenterNoodles/Penne">View on GitHub →</a></p>
+<h2>Rigatoni</h2>
+<p>A server library that allows users to create NOODLES sessions and share 3D data in real-time.</p>
+<p><a href="https://insightcenternoodles.github.io/Rigatoni/">View the Website →</a>
+<a href="https://github.com/InsightCenterNoodles/Rigatoni">View on GitHub →</a></p>
+<h2>Orzo</h2>
+<p>A 3D rendering application built from scratch using ModernGL and Python. It has been used regularly by researchers for testing and developing NOODLES sessions. I built the shaders from scratch using GLSL and linear algebra, and I tested the application on geometries as large as 12M triangles.</p>
+<p><a href="https://insightcenternoodles.github.io/Orzo/">View the Website →</a>
+<a href="https://github.com/InsightCenterNoodles/Orzo">View on GitHub →</a></p>
 <p>For more NOODLES-related projects, see the <a href="https://github.com/InsightCenterNoodles">InsightCenterNoodles collection</a>.</p>
-<p><a href="https://github.com/InsightCenterNoodles/Penne">View on GitHub →</a></p>
         </div>
     </main>
 </body>

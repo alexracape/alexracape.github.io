@@ -67,21 +67,29 @@
     <script>
         const currentPageId = "Home";
 
-        // Add cache-busting parameter to ensure fresh data
-        fetch('graph.json?v=' + new Date().getTime())
+        fetch('graph.json')
             .then(res => res.json())
             .then(data => {
                 const graphContainer = document.getElementById('local-graph');
                 
+                // Debug: Log the graph data
+                console.log('Graph data loaded:', data);
+                console.log('Number of nodes:', data.nodes.length);
+                console.log('Number of links:', data.links.length);
+                
                 const Graph = ForceGraph3D()
                     (graphContainer)
                     .graphData(data)
+                    .numDimensions(2)
                     .backgroundColor('#ffffff')
                     .nodeColor(node => node.id === currentPageId ? '#D22730' : '#004E86')
                     .nodeOpacity(1.0)
                     .nodeLabel(node => node.id === currentPageId ? 'Alex Racapé' : node.id)
                     .linkColor(() => '#1a1a1a')
                     .linkWidth(2)
+                    .linkDirectionalParticles(2)
+                    .linkDirectionalParticleWidth(1)
+                    .linkDirectionalParticleSpeed(0.005)
                     .nodeResolution(32)
                     .nodeRelSize(8)
                     .onNodeClick(node => {

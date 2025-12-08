@@ -48,6 +48,62 @@ def process_content(content):
     processed = re.sub(regex, replace_link, content)
     return processed
 
+def process_cards(content):
+    # Look for ::: cards ... ::: blocks
+    block_regex = r'::: cards\n(.*?)\n:::'
+    
+    def replace_block(match):
+        block_content = match.group(1)
+        lines = block_content.strip().split('\n')
+        cards_html = ['<div class="card-grid">']
+        
+        for line in lines:
+            if not line.strip().startswith('- '):
+                continue
+            
+            # Remove '- '
+            line = line.strip()[2:]
+            parts = [p.strip() for p in line.split('|')]
+            
+            if len(parts) >= 3:
+                link_text = parts[0] # [[Page]]
+                desc = parts[1]
+                img_path = parts[2]
+                
+                # Extract page name from [[Page]]
+                page_match = re.search(r'\[\[(.*?)\]\]', link_text)
+                if page_match:
+                    page_name = page_match.group(1)
+                    link_url = f"{page_name}.html"
+                    title = page_name
+                else:
+                    # Handle standard markdown link [Title](url)
+                    md_link_match = re.search(r'\[(.*?)\]\((.*?)\)', link_text)
+                    if md_link_match:
+                        title = md_link_match.group(1)
+                        link_url = md_link_match.group(2)
+                    else:
+                        link_url = "#"
+                        title = link_text
+                
+                card_html = f"""
+                <a href="{link_url}" class="card">
+                    <div class="card-image">
+                        <img src="{img_path}" alt="{title}">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">{title}</h3>
+                        <p class="card-description">{desc}</p>
+                    </div>
+                </a>
+                """
+                cards_html.append(card_html)
+        
+        cards_html.append('</div>')
+        return '\n'.join(cards_html)
+
+    return re.sub(block_regex, replace_block, content, flags=re.DOTALL)
+
 def build_graph(files):
     nodes = []
     links = []
@@ -118,8 +174,9 @@ def build_site():
             with open(input_path, 'r') as file:
                 raw_content = file.read()
                 
-            # Pre-process links in markdown before conversion
-            linked_content = process_content(raw_content)
+            # Pre-process cards and links in markdown before conversion
+            content_with_cards = process_cards(raw_content)
+            linked_content = process_content(content_with_cards)
             
             # Convert to HTML
             html_content = markdown.markdown(linked_content)

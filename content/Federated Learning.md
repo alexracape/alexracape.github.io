@@ -2,6 +2,8 @@
 
 This project implements a **Federated Learning Framework** that enables distributed machine learning across multiple machines while maintaining data privacy and security. The system allows model training on decentralized data without requiring data to leave local machines.
 
+![Overview](images/federated_avg.png)
+
 ### Architecture
 
 - **Coordinator**: Manages the global model and orchestrates training rounds

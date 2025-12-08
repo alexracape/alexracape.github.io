@@ -325,6 +325,71 @@ img {
     }
 }
 
+/* Card Grid Styles */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--bg-color);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 0px var(--bauhaus-red);
+    border-bottom: 1px solid var(--border-color); /* Override default link hover */
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    transition: transform 0.3s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    border-bottom: none;
+}
+
+.card-description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
     </style>
 </head>
 
@@ -343,6 +408,15 @@ img {
     <main>
         <div class="content">
             <h1>Fine-tuned Learning Assistant</h1>
+<blockquote>
+<p>This project is currently a work in progress. </p>
+</blockquote>
+<p>I was inspired by the years that I speant as a Learning Assistant at Bowdoin to create an assistant that could help students like a good TA would. When you go to office hours, you wouldn't expect to have the TA immediately give you a solution that you can copy and paste. Instead, you expect the TA to support you in your learning process instead of supplanting it. </p>
+<p>In this project, I have been using Constitutional AI to fine-tune an LLM. I built the Constitutional AI procedure and was able to generate a dataset with 10,000 examples.</p>
+<p>Currently, I am exploring different fine-tuning algorithms like DPO and GRPO to see which one works best for this task. The initial training runs show the model becoming overly cautious and evasive, so I am working on tuning the hyperparameters used during training. </p>
+<p><a href="https://huggingface.co/datasets/aracape/cai-education-single-turn">Dataset →</a></p>
+<p><a href="https://huggingface.co/aracape/teaching-assistant-8B-dpo">Most recent model →</a></p>
+<p><a href="https://github.com/alexracape/consititutional-ai">Source →</a></p>
         </div>
     </main>
 </body>
