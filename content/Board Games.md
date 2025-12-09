@@ -8,3 +8,4 @@ I'm always looking for new games to try, but my favorites are
 - [Brass: Birmingham](https://boardgamegeek.com/boardgame/224517/brass-birmingham)
 - [Dominion](https://boardgamegeek.com/boardgame/36218/dominion)
 - [Pandemic Legacy](https://boardgamegeek.com/boardgame/161936/pandemic-legacy-season-1)
+

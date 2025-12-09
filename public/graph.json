@@ -142,10 +142,6 @@
     },
     {
       "source": "Hobbies",
-      "target": "Music"
-    },
-    {
-      "source": "Hobbies",
       "target": "Graphic Design"
     },
     {
@@ -155,6 +151,10 @@
     {
       "source": "Hobbies",
       "target": "Tennis"
+    },
+    {
+      "source": "Hobbies",
+      "target": "Music"
     },
     {
       "source": "Education",
