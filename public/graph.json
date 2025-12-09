@@ -4,6 +4,9 @@
       "id": "Photography"
     },
     {
+      "id": "Distributed Training"
+    },
+    {
       "id": "Work"
     },
     {
@@ -47,9 +50,6 @@
     },
     {
       "id": "Noodles"
-    },
-    {
-      "id": "Federated Learning"
     },
     {
       "id": "Barn Logo"
@@ -102,7 +102,7 @@
     },
     {
       "source": "Projects",
-      "target": "Federated Learning"
+      "target": "Distributed Training"
     },
     {
       "source": "Projects",

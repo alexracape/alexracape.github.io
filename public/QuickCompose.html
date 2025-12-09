@@ -7,16 +7,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
     <title>QuickCompose - Alex Racapé</title>
     <style>
         :root {
     --bg-color: #ffffff;
     --text-color: #1a1a1a;
-    --bauhaus-red: #D22730;
-    --bauhaus-blue: #004E86;
-    --bauhaus-yellow: #F3CD00;
+    --bauhaus-red: #DC341C;
+    --bauhaus-blue: #1063B2;
+    --bauhaus-yellow: #E7B715;
     --border-color: #000000;
     --sidebar-width: 250px;
+    --node-color: #acabab;
 }
 
 * {
@@ -26,7 +28,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Outfit, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     display: grid;
@@ -49,7 +51,7 @@ aside {
     height: 100vh;
     position: sticky;
     top: 0;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .headshot {
@@ -64,7 +66,7 @@ aside {
     font-size: 3rem;
     text-align: center;
     line-height: 1.2;
-    font-family: 'EB Garamond', serif;
+    font-family: Outfit, serif;
     font-weight: 500;
     font-style: bold;
 }
@@ -100,6 +102,15 @@ nav a {
 nav a:hover {
     color: var(--bauhaus-red);
     border: 1px solid var(--border-color);
+}
+
+.blurb p {
+    font-size: 0.7rem;
+    color: var(--text-color);
+    text-align: center;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 0;
 }
 
 /* Typography */
@@ -351,7 +362,7 @@ img {
 
 .card-image {
     width: 100%;
-    height: 180px;
+    height: 260px;
     overflow: hidden;
     border-bottom: 1px solid var(--border-color);
     background-color: #f0f0f0;
@@ -404,10 +415,20 @@ img {
         <a href="Hobbies.html">Hobbies</a>
         <a href="About Me.html">About Me</a>
     </nav>
+    <div class="blurb">
+        <p>Software engineer focused on AI/ML applications. Graduating from Columbia University with a M.S. in Machine Learning.</p>
+    </div>
 </aside>
     <main>
         <div class="content">
             <h1>QuickCompose</h1>
+<h2>Problem</h2>
+<p>While interning at New York Life, I worked with a team of interns to help life insurance with their email marketing campaigns. Currently, agents spend a significant amount of time drafting emails, and smaller firms often don't have the resources to pursue marketing whatsoever.</p>
+<h2>Solution</h2>
+<p>Our solution was to build an MCP (Model Context Protocol) server that would allow LLMs to access and use tools to draft personalized and compliant email campaigns. MCP essentially provides an LLM with a list of tools that it can use to accomplish a task. In our use case, we built tools for pulling Salesforce CRM data, fetching New York Life branded assets, checking compliance, and finally sending the email via AWS SES.</p>
+<p>Our implementation was informed by the feedback we got from agents, managers, and members of our marketing and compliance teams. Agents were extremely excited to see features like  mailing list curation with natural language and fastracked compliance checking. The compliance team was just excited to have a tool that could take some work off of their plate.</p>
+<h2>Impact</h2>
+<p>This project was an important proof of concept, and it sparked a lot of interest from senior management in pursuing this technology further. In our conversations with agents, they said that they could spend up to an hour drafting an email whereas our tool would take only a few minutes. In addition, our tool would speed up the compliance process which typically takes several days. </p>
         </div>
     </main>
 </body>

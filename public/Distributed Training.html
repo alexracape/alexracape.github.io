@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
-    <title>Board Games - Alex Racapé</title>
+    <title>Distributed Training - Alex Racapé</title>
     <style>
         :root {
     --bg-color: #ffffff;
@@ -421,15 +421,30 @@ img {
 </aside>
     <main>
         <div class="content">
-            <h1>Board Games</h1>
-<p>In my free time, I'm obsessed with board games. I love the creative problem solving, and the people I get to play with. </p>
-<p>I'm always looking for new games to try, but my favorites are </p>
+            <h1>Distributed Training Framework</h1>
+<p>This project implements a <strong>Federated Learning Framework</strong> that enables distributed machine learning across multiple machines while maintaining data privacy and security. The system allows model training on decentralized data without requiring data to leave local machines.</p>
+<p><img alt="Overview" src="images/federated_avg.png" /></p>
+<h3>Architecture</h3>
 <ul>
-<li><a href="https://boardgamegeek.com/boardgame/237182/root">Root</a></li>
-<li><a href="https://boardgamegeek.com/boardgame/224517/brass-birmingham">Brass: Birmingham</a></li>
-<li><a href="https://boardgamegeek.com/boardgame/36218/dominion">Dominion</a></li>
-<li><a href="https://boardgamegeek.com/boardgame/161936/pandemic-legacy-season-1">Pandemic Legacy</a></li>
+<li><strong>Coordinator</strong>: Manages the global model and orchestrates training rounds</li>
+<li><strong>Workers</strong>: Train models on local data and send updates to the coordinator</li>
+<li><strong>Aggregation</strong>: Uses federated averaging, effective for both homogeneous and heterogeneous data</li>
 </ul>
+<h3>Implementation</h3>
+<ul>
+<li>Built with <strong>Python</strong>, <strong>XML-RPC</strong>, and <strong>PyTorch</strong></li>
+<li>Inspired by MapReduce for modularity and customizability</li>
+<li>Language and framework agnostic design</li>
+<li>Clean separation between ML code and coordination logic</li>
+</ul>
+<h3>Key Features</h3>
+<ul>
+<li><strong>Load Balancing</strong>: Detects stragglers and dynamically adjusts workloads</li>
+<li><strong>Fault Tolerance</strong>: Built-in retry mechanisms and quorum protocol for worker failures</li>
+<li><strong>Scalability</strong>: Tested on AWS EC2 with deployment scripts for multi-machine setups</li>
+</ul>
+<p>The framework was evaluated on MNIST with varied data distributions across workers, demonstrating robust performance and resilience to worker failures.</p>
+<p><a href="https://github.com/alexracape/federated-learning">View on GitHub →</a></p>
         </div>
     </main>
 </body>

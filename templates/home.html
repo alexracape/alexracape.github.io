@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
     <title>Alex Racapé</title>
     <script src="//unpkg.com/3d-force-graph"></script>
     <style>
@@ -64,8 +65,18 @@
     {sidebar}
     <div class="graph-container" id="local-graph"></div>
 
-    <script>
+    <script type="module">
+        import * as THREE from 'https://esm.sh/three';
+
         const currentPageId = "Home";
+
+        // Get colors from CSS variables (single source of truth)
+        const rootStyles = getComputedStyle(document.documentElement);
+        const bauhausRed = rootStyles.getPropertyValue('--bauhaus-red').trim();
+        const bauhausBlue = rootStyles.getPropertyValue('--bauhaus-blue').trim();
+        const bauhausYellow = rootStyles.getPropertyValue('--bauhaus-yellow').trim();
+        const bgColor = rootStyles.getPropertyValue('--bg-color').trim();
+        const textColor = rootStyles.getPropertyValue('--text-color').trim();
 
         fetch('graph.json')
             .then(res => res.json())
@@ -77,26 +88,129 @@
                 console.log('Number of nodes:', data.nodes.length);
                 console.log('Number of links:', data.links.length);
                 
+                // Cross-link node objects to track neighbors and links
+                data.links.forEach(link => {
+                    const a = data.nodes.find(n => n.id === link.source || n === link.source);
+                    const b = data.nodes.find(n => n.id === link.target || n === link.target);
+                    
+                    if (a && b) {
+                        !a.neighbors && (a.neighbors = []);
+                        !b.neighbors && (b.neighbors = []);
+                        a.neighbors.push(b);
+                        b.neighbors.push(a);
+
+                        !a.links && (a.links = []);
+                        !b.links && (b.links = []);
+                        a.links.push(link);
+                        b.links.push(link);
+                    }
+                });
+
+                // Highlight tracking
+                const highlightNodes = new Set();
+                const highlightLinks = new Set();
+                let hoverNode = null;
+
+                // Color mapping function
+                const nodeColorFn = node => {
+                    // Yellow for home page
+                    if (node.id === currentPageId) return bauhausYellow;
+
+                    // Red for main pages
+                    const mainPages = ['Work', 'Education', 'Projects', 'About Me', 'Hobbies'];
+                    if (mainPages.includes(node.id)) return bauhausRed;
+
+                    // Blue for other pages
+                    return bauhausBlue;
+                };
+                
+                // Label function - handles home page relabeling
+                const nodeLabelFn = node => {
+                    if (highlightNodes.has(node)) {
+                        return node.id === currentPageId ? 'Alex Racapé' : node.id;
+                    }
+                };
+
+                // Size function - boosts size for highlighted nodes
+                const nodeSizeFn = node => {
+                    if (highlightNodes.has(node)) {
+                        return 6.5;
+                    }
+                    return 6;
+                };
+                
                 const Graph = ForceGraph3D()
                     (graphContainer)
                     .graphData(data)
                     .numDimensions(2)
                     .dagMode('zout')
-                    .backgroundColor('#ffffff')
-                    .nodeColor(node => node.id === currentPageId ? '#D22730' : '#004E86')
+                    .backgroundColor(bgColor)
+                    .nodeColor(nodeColorFn)
+                    .nodeVal(nodeSizeFn)
                     .nodeOpacity(1.0)
-                    .nodeLabel(node => node.id === currentPageId ? 'Alex Racapé' : node.id)
-                    .linkColor(() => '#1a1a1a')
-                    .linkWidth(2)
-                    // .linkDirectionalParticles(2)
-                    // .linkDirectionalParticleWidth(1)
-                    // .linkDirectionalParticleSpeed(0.005)
+                    .nodeLabel(nodeLabelFn)
+                    .linkColor(() => textColor)
+                    .linkWidth(link => highlightLinks.has(link) ? 1.25 : 1)
+                    .linkOpacity(0.6)
                     .nodeResolution(32)
-                    .nodeRelSize(8)
                     .onNodeClick(node => {
                         // Always use the actual node.id for the URL, not the display label
                         window.location.href = node.id + '.html';
+                    })
+                    .onNodeHover(node => {
+                        // No state change
+                        if ((!node && !highlightNodes.size) || (node && hoverNode === node)) return;
+
+                        highlightNodes.clear();
+                        highlightLinks.clear();
+                        if (node) {
+                            highlightNodes.add(node);
+                            if (node.neighbors) {
+                                node.neighbors.forEach(neighbor => highlightNodes.add(neighbor));
+                            }
+                            if (node.links) {
+                                node.links.forEach(link => highlightLinks.add(link));
+                            }
+                        }
+
+                        hoverNode = node || null;
+                        updateHighlight();
+                    })
+                    .onLinkHover(link => {
+                        highlightNodes.clear();
+                        highlightLinks.clear();
+
+                        if (link) {
+                            highlightLinks.add(link);
+                            highlightNodes.add(link.source);
+                            highlightNodes.add(link.target);
+                        }
+
+                        updateHighlight();
                     });
+
+                function updateHighlight() {
+                    // Trigger update of highlighted objects in scene
+                    Graph
+                        .nodeColor(nodeColorFn)
+                        .nodeLabel(nodeLabelFn)
+                        .nodeVal(nodeSizeFn)
+                        .linkColor(Graph.linkColor())
+                        .linkWidth(Graph.linkWidth())
+                        .linkOpacity(Graph.linkOpacity())
+                }
+
+                // Add lights
+                const frontLight = new THREE.DirectionalLight(0xffffff, 2);
+                const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+                const topLight = new THREE.DirectionalLight(0xffffff, 2);
+                topLight.position.set(0, 1, 0);
+                frontLight.position.set(0, 0, 1);
+                Graph.lights([
+                    frontLight,
+                    ambientLight,
+                    topLight,
+                ])
                 
                 // Function to resize graph properly
                 function resizeGraph() {
