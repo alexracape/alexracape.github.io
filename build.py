@@ -6,10 +6,16 @@ import shutil
 
 CONTENT_DIR = 'content'
 PUBLIC_DIR = 'public'
-TEMPLATE_PATH = 'templates/layout.html'
-HOME_TEMPLATE_PATH = 'templates/home.html'
-STYLES_PATH = 'templates/styles.css'
-SIDEBAR_PATH = 'templates/sidebar.html'
+TEMPLATES_DIR = 'templates'
+TEMPLATE_PATH = os.path.join(TEMPLATES_DIR, 'layout.html')
+HOME_TEMPLATE_PATH = os.path.join(TEMPLATES_DIR, 'home.html')
+STYLES_PATH = os.path.join(TEMPLATES_DIR, 'styles.css')
+SIDEBAR_PATH = os.path.join(TEMPLATES_DIR, 'sidebar.html')
+
+TRACKING_SCRIPT = """
+<script data-goatcounter="https://alexracape.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+"""
 
 def ensure_public_dir():
     if not os.path.exists(PUBLIC_DIR):
@@ -154,6 +160,10 @@ def build_site():
     content_template = content_template.replace('{sidebar}', sidebar)
     home_template = home_template.replace('{styles}', styles)
     home_template = home_template.replace('{sidebar}', sidebar)
+
+    # Inject tracking script
+    content_template = content_template.replace('{tracking_script}', TRACKING_SCRIPT)
+    home_template = home_template.replace('{tracking_script}', TRACKING_SCRIPT)
     
     # Process each file
     for f in files:

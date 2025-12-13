@@ -1,6 +1,6 @@
 # About Me
 
-I'm a software engineer focused on building impactful AI applications. I am about to graduate from Columbia University with a Master's in Computer Science and a concentration in Machine Learning. I love to build, learn, and play with new technologies, and I hope that is one thing that comes across in this site. 
+I'm a software engineer focused on building AI/ML applications. I am about to graduate from Columbia University with a Master's in Computer Science and a concentration in Machine Learning. I love to build, learn, and play with new technologies, and I hope that is one thing that comes across in this site. 
 
 I am currently based out of New York City.
 

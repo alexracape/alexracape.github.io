@@ -1,6 +1,6 @@
 # Noodles
 
-The goal of NOODLES is to provide a framework for building real-time, collaborative, 3D data visualizations. Imagine if you are a researcher and you want to visualize the data from your windfarm simulation. If you wanted a 3D visualization you would have to create a bespoke solution for VR headsets, AR glasses, web browsers, etc. NOODLES establishes a protocol that is agnostic to the hardware and allows for real-time, collaborative, 3D data visualizations.
+The goal of NOODLES is to provide a framework for building real-time, collaborative, 3D data visualizations. Imagine if you are a researcher and you want to visualize the data from your windfarm simulation. If you wanted a 3D visualization you would have to create a bespoke solution for VR headsets, AR glasses, web browsers, etc. Even then, there would be no way to share the data and collaborate with others in real-time. NOODLES establishes a protocol that is agnostic to the hardware and allows for collaborative 3D data visualizations.
 
 ![Noodles](images/mesh.png)
 
@@ -15,14 +15,14 @@ A client library that allows users to join a NOODLES session and view 3D data in
 
 ## Rigatoni
 
-A server library that allows users to create NOODLES sessions and share 3D data in real-time.
+A server library that allows users to create NOODLES sessions and share their data.
 
 [View the Website →](https://insightcenternoodles.github.io/Rigatoni/)
 [View on GitHub →](https://github.com/InsightCenterNoodles/Rigatoni)
 
 ## Orzo
 
-A 3D rendering application built from scratch using ModernGL and Python. It has been used regularly by researchers for testing and developing NOODLES sessions. I built the shaders from scratch using GLSL and linear algebra, and I tested the application on geometries as large as 12M triangles.
+A 3D rendering application built from scratch using ModernGL and Python. It has been used regularly by researchers for testing and developing NOODLES sessions. I built the shaders from scratch using GLSL, and I tested the application on geometries as large as 12M triangles.
 
 [View the Website →](https://insightcenternoodles.github.io/Orzo/)
 [View on GitHub →](https://github.com/InsightCenterNoodles/Orzo)

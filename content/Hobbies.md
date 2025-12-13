@@ -8,3 +8,5 @@ Here are some of my hobbies and interests.
 - [[Tennis]]
 - [Reading](https://www.goodreads.com/user/show/179292776-alex-racap)
 - [[Music]]
+- Skiing
+- Climbing
