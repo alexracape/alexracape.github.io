@@ -18,7 +18,7 @@ Two basic models were developed and compared:
 - **Random Forest**: Ensemble learning approach
 - **Neural Network**: Deep learning model
 
-Both models achieved excellent predictive performance for list prices and current market values. The trading strategy consistently outperformed the S&P 500 and equal-weighted LEGO portfolios. Feature importance analysis revealed key factors driving LEGO set valuations, and the model generated five-year price forecasts.
+Both models were able to accurately predict LEGO set resale prices, so our basic strategy was to buy the sets with from each year with the highest predicted resale price. The trading strategy consistently outperformed the S&P 500 and equal-weighted LEGO portfolios. Feature importance analysis revealed key factors driving LEGO set valuations, and the model generated five-year price forecasts.
 
 The complete dataset is available on [Kaggle](https://www.kaggle.com/datasets/alexracape/lego-sets-and-prices-over-time), and it has reached over 2,400 downloads with active users every month.
 
@@ -26,4 +26,4 @@ The complete dataset is available on [Kaggle](https://www.kaggle.com/datasets/al
 
 ## Regression Model
 
-I then expanded on this project to create a multilinear regression model that predicted LEGO set prices based on their features. I met with an executive at LEGO, and developed this [report](https://github.com/alexracape/lego-learner/blob/main/Final%20Project.pdf) detailing the results of my analysis. For those who are curious, the model estimated an average annual appreciation of 9.97%..
+I then expanded on this project to create a multilinear regression model that predicted LEGO set prices based on their features. I met with an executive at LEGO, and developed this [report](https://github.com/alexracape/lego-learner/blob/main/Final%20Project.pdf) detailing the results of my analysis. For those who are curious, the model estimated an average annual appreciation of 9.97%.

@@ -2,7 +2,7 @@
 
 > This project is currently a work in progress. 
 
-I was inspired by the years that I speant as a Learning Assistant at Bowdoin to create an assistant that could help students like a good TA would. When you go to office hours, you wouldn't expect to have the TA immediately give you a solution that you can copy and paste. Instead, you expect the TA to support you in your learning process instead of supplanting it. 
+I was inspired by the years that I spent as a Learning Assistant at Bowdoin to create an assistant that could help students like a good TA would. When you go to office hours, you wouldn't expect to have the TA immediately give you a solution that you can copy and paste. Instead, you expect the TA to support you in your learning process instead of supplanting it. 
 
 In this project, I have been using Constitutional AI to fine-tune an LLM. I built the Constitutional AI procedure and was able to generate a dataset with 10,000 examples.
 
